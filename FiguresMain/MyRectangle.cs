@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Shapes;
+using System.Windows.Media;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace FiguresMain
 {
-    public class MyRectangle : Figure
+    public class MyRectangle : Figure, IDraw
     {
 
-        public override void DrawFigure(Figure figure)
+        public override Shape GetShape()
         {
-            throw new NotImplementedException();
+            Rectangle rect = new Rectangle();
+            rect.Fill = new SolidColorBrush(Colors.Coral);
+            rect.Width = this.GetSideA();
+            rect.Height = this.GetSideB();
+            rect.Name = "rect";
+
+            return rect;
+
         }
         public MyRectangle()
         {
@@ -20,19 +31,18 @@ namespace FiguresMain
             points.Add(new Point(50, 0));
             points.Add(new Point(50, 100));
             points.Add(new Point(0, 100));
+            
         }
-
-        public double GetSideB()
+        public MyRectangle(int width, int height)
         {
-            double SideB = Math.Sqrt(Math.Pow((points[2].x - points[1].x), 2) + Math.Pow((points[2].y - points[1].y), 2));
+            points = new List<Point>();
+            points.Add(new Point(0, 0));
+            points.Add(new Point(width, 0));
+            points.Add(new Point(width, height));
+            points.Add(new Point(0, height));
 
-            return SideB;
         }
-        public double GetSideA()
-        {
-            double SideA = Math.Sqrt(Math.Pow((points[1].x - points[0].x), 2) + Math.Pow((points[1].y - points[0].y), 2));
 
-            return SideA;
-        }
+
     }
 }

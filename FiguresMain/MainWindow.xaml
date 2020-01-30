@@ -6,16 +6,66 @@
         xmlns:local="clr-namespace:FiguresMain"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="img\lavender.jpg"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="myStack" Grid.Row="0" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="myCanvas" Grid.Row="1" Grid.RowSpan="10" Grid.Column="5" Grid.ColumnSpan="12" >
+
+        </Canvas>
+        <Button Style="{DynamicResource Button}" Name="btnAddFigure" Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="3" Content="AddFigure" Width="100" Click="btnAddFigure_Click" />
+        <Button Style="{DynamicResource Button}" Name="btnDrawFigures" Grid.Row="12" Grid.Column="10" Grid.ColumnSpan="3" Content="DrawFigures" Width="100" Click="btnDrawFigures_Click" />
+        <Button Style="{DynamicResource Button}" Name="btnClear" Grid.Row="12" Grid.Column="13"  Grid.ColumnSpan="3" Content="Clear" Width="100" Click="btnClear_Click" />
+        <TextBlock Style="{DynamicResource MainFont}" Text="Please choose what figure " Width="200"  Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <LineBreak />
+               you want to add:
+        </TextBlock>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Triangle" Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Name="rbTriangle"/>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Square" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Name="rbSquare"/>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Rhombus" Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Name="rbRhombus"/>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Rectangle" Grid.Row="5" Grid.Column="1"  Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" IsChecked="True"  Name="rbRectangle"/>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Parallelogram" Grid.Row="6" Grid.Column="1"  Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Name="rbParallelogram"/>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Trapeze" Grid.Row="7" Grid.Column="1"  Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Name="rbTrapeze"/>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Circle" Grid.Row="8" Grid.Column="1"  Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Center" Name="rbCircle"/>
+        <RadioButton Style="{DynamicResource MainFont}" Content="Ellips" Grid.Row="9" Grid.Column="1"  Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Name="rbEllipse"/>
+        <ComboBox Style="{DynamicResource Button}" x:Name="styleBox" Grid.Row="12" Grid.Column ="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Width="70" VerticalAlignment="Top" SelectionChanged="ThemeChanged"/>
 
 
-        </StackPanel>
-        <Button Content="AddFigure" Width="100" Click="btnDrawFigures_Click" Margin="239,350,454.6,-0.6" Grid.RowSpan="2" />
-        <Button Grid.Row="1"  Content="DrawFigures" Width="100" Click="btnDrawFigures_Click" />
     </Grid>
 </Window>
