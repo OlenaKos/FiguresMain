@@ -84,7 +84,6 @@
     </Compile>
     <Compile Include="Figure.cs" />
     <Compile Include="FiguresTest.cs" />
-    <Compile Include="IDraw.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

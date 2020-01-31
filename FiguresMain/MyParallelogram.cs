@@ -10,18 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace FiguresMain
 {
-    class MyParallelogram : Figure, IDraw
+    class MyParallelogram : Figure
     {
-        public override Shape GetShape()
-        {
-            Polygon parallelogram = new Polygon();
-            parallelogram.Fill = new SolidColorBrush(Colors.Chartreuse);
-            parallelogram.Points = new PointCollection(points);
 
-
-            return parallelogram;
-
-        }
         public MyParallelogram()
         {
             points = new List<Point>();
@@ -29,6 +20,12 @@ namespace FiguresMain
             points.Add(new Point(175, 0));
             points.Add(new Point(150, 50));
             points.Add(new Point(0, 50));
+
+            Polygon parallelogram = new Polygon();
+            parallelogram.Fill = new SolidColorBrush(Colors.Fuchsia);
+            parallelogram.Points = new PointCollection(points);
+
+            MyShape = parallelogram;
 
         }
     }

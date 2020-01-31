@@ -30,7 +30,6 @@ namespace FiguresMain
             styleBox.SelectedItem = "Light";
         }
 
-
         private void ThemeChanged(object sender, SelectionChangedEventArgs e)
         {
             string style = styleBox.SelectedItem as string;
@@ -42,10 +41,34 @@ namespace FiguresMain
 
         private void btnDrawFigures_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var figure in figures)
+            myCanvas.Children.Clear();
+
+            int left = 0;
+            for (int i = 0; i < figures.Count; i++)
             {
-                myCanvas.Children.Add(figure.GetShape());
+
+                left += 60;
+
+                Shape shape = figures[i].MyShape;
+                shape.MouseLeftButtonDown += MyShape_MouseLeftButtonDown;
+                shape.MouseLeftButtonUp += MyShape_MouseLeftButtonUp;
+                shape.MouseMove += MyShape_MouseMove;
+
+                Canvas.SetLeft(shape, left);
+                Canvas.SetTop(shape, 30);
+                myCanvas.Children.Add(shape);
             }
+            //foreach (var figure in figures)
+            //{
+            //    Shape shape = figure.MyShape;
+            //    shape.MouseLeftButtonDown += MyShape_MouseLeftButtonDown;
+            //    shape.MouseLeftButtonUp += MyShape_MouseLeftButtonUp;
+            //    shape.MouseMove += MyShape_MouseMove;
+
+            //    Canvas.SetLeft(shape, 30);
+            //    Canvas.SetTop(shape, 30);
+            //    myCanvas.Children.Add(shape);
+            //}
 
         }
         private void btnAddFigure_Click(object sender, RoutedEventArgs e)
@@ -84,22 +107,6 @@ namespace FiguresMain
             {
                 figure = new MyEllipse();
             }
-            //MyRectangle MyRect = new MyRectangle(70, 80);
-            //Rectangle rect = new Rectangle();
-            //SolidColorBrush myBrush = new SolidColorBrush();
-            //LinearGradientBrush linearGradientBrush = new LinearGradientBrush();
-            //linearGradientBrush.StartPoint = new Point(0, 0);
-            //linearGradientBrush.EndPoint = new Point(1, 1);
-            //linearGradientBrush.GradientStops.Add (new GradientStop(Colors.Coral, 0.0));
-            //linearGradientBrush.GradientStops.Add(new GradientStop(Colors.Yellow, 1.0));
-
-
-            //myBrush.Color = Colors.Coral;
-            //rect.Fill = linearGradientBrush;//new SolidColorBrush(Colors.Coral);
-            //rect.Width = MyRect.GetSideA();
-            //rect.Height = MyRect.GetSideB();
-
-            //myStack.Children.Add(figure.GetShape());
 
             figures.Add(figure);
 
@@ -109,6 +116,37 @@ namespace FiguresMain
         {
             myCanvas.Children.Clear();
             figures.Clear();
+        }
+
+        private void MyShape_MouseMove(object sender, MouseEventArgs e)
+        {
+            Shape shape = (Shape)sender;
+
+            if (!shape.IsMouseCaptured)
+            {
+                return;
+            }
+
+            var mousePos = e.GetPosition(myCanvas);
+
+
+            double left = mousePos.X - (shape.ActualWidth / 2);
+            double top = mousePos.Y - (shape.ActualHeight / 2);
+
+            Canvas.SetLeft(shape, left);
+            Canvas.SetTop(shape, top);
+        }
+
+        private void MyShape_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Shape shape = (Shape)sender;
+            shape.CaptureMouse();
+        }
+
+        private void MyShape_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Shape shape = (Shape)sender;
+            shape.ReleaseMouseCapture();
         }
     }
 }

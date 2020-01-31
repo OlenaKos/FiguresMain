@@ -9,25 +9,18 @@ using System.Windows;
 
 namespace FiguresMain
 {
-   public class MyTriangle : Figure, IDraw
+   public class MyTriangle : Figure
     {
 
-        public override Shape GetShape()
-        {
-            Polygon triangle = new Polygon();
-            triangle.Fill = new SolidColorBrush(Colors.Coral);
-            triangle.Points = new PointCollection(points);
-
-
-            return triangle;
-
-        }
         public MyTriangle()
         {
             points = new List<Point>();
             points.Add(new Point(50, 150));
             points.Add(new Point(150, 50));
             points.Add(new Point(250, 150));
+            Polygon triangle = new Polygon();
+            triangle.Fill = new SolidColorBrush(Colors.Coral);
+            triangle.Points = new PointCollection(points);
 
         }
         public MyTriangle(int width, int height)
@@ -36,6 +29,9 @@ namespace FiguresMain
             points.Add(new Point(50, 150));
             points.Add(new Point(150, 50));
             points.Add(new Point(250, 150));
+            Polygon triangle = new Polygon();
+            triangle.Fill = new SolidColorBrush(Colors.Coral);
+            triangle.Points = new PointCollection(points);
 
         }
 

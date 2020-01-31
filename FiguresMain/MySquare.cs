@@ -10,25 +10,21 @@ using System.Windows.Media.Imaging;
 
 namespace FiguresMain
 {
-    class MySquare : Figure, IDraw
+    class MySquare : Figure
     {
-        public override Shape GetShape()
-        {
-            Rectangle rect = new Rectangle();
-            rect.Fill = new SolidColorBrush(Colors.Yellow);
-            rect.Width = GetSideA();
-            rect.Height = GetSideA();
-
-            return rect;
-
-        }
         public MySquare()
         {
             points = new List<Point>();
             points.Add(new Point(0, 0));
-            points.Add(new Point(50, 0));
-            points.Add(new Point(50, 50));
+            points.Add(new Point(90, 0));
+            points.Add(new Point(90, 50));
             points.Add(new Point(0, 50));
+
+            Polygon rect = new Polygon();
+            rect.Fill = new SolidColorBrush(Colors.Yellow);
+            rect.Points = new PointCollection(points);
+
+            MyShape = rect;
 
         }
         public MySquare(int width)
@@ -38,6 +34,12 @@ namespace FiguresMain
             points.Add(new Point(width, 0));
             points.Add(new Point(width, width));
             points.Add(new Point(0, width));
+
+            Polygon rect = new Polygon();
+            rect.Fill = new SolidColorBrush(Colors.Yellow);
+            rect.Points = new PointCollection(points);
+
+            MyShape = rect;
 
         }
     }

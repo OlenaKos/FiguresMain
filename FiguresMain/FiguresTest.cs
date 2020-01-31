@@ -55,17 +55,17 @@ namespace FiguresMain
         }
 
 
-        //[Test]
-        //public static void testRectangleCreation3()
+        //[test]
+        //public static void testrectanglecreation3()
         //{
-        //    MyRectangle rectangle = new MyRectangle(70, 80);
+        //    myrectangle rectangle = new myrectangle(70, 80);
 
-        //    Shape rect = new Rectangle();
-        //    rect.Fill = new SolidColorBrush(Colors.Coral);
-        //    rect.Width = 70;
-        //    rect.Height = 80;
+        //    shape rect = new rectangle();
+        //    rect.fill = new solidcolorbrush(colors.coral);
+        //    rect.width = 70;
+        //    rect.height = 80;
 
-        //    Assert.AreEqual(rect, rectangle.GetShape());
+        //    assert.areequal(rect, rectangle.getshape());
         //}
     }
 }

@@ -10,18 +10,8 @@ using System.Windows.Media.Imaging;
 
 namespace FiguresMain
 {
-    class MyRhombus : Figure, IDraw
+    class MyRhombus : Figure
     {
-        public override Shape GetShape()
-        {
-            Polygon rhombus = new Polygon();
-            rhombus.Fill = new SolidColorBrush(Colors.DarkSlateBlue);
-            rhombus.Points = new PointCollection(points);
-
-
-            return rhombus;
-
-        }
         public MyRhombus()
         {
             points = new List<Point>();
@@ -30,6 +20,17 @@ namespace FiguresMain
             points.Add(new Point(100, 200));
             points.Add(new Point(150, 100));
 
+            Polygon rhombus = new Polygon();
+            LinearGradientBrush linearGradientBrush = new LinearGradientBrush();
+            linearGradientBrush.StartPoint = new Point(0, 0);
+            linearGradientBrush.EndPoint = new Point(1, 1);
+            linearGradientBrush.GradientStops.Add(new GradientStop(Colors.Coral, 0.0));
+            linearGradientBrush.GradientStops.Add(new GradientStop(Colors.Yellow, 1.0));
+
+            rhombus.Fill = linearGradientBrush;
+            rhombus.Points = new PointCollection(points);
+
+            MyShape = rhombus;
         }
     }
 }

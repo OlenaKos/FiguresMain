@@ -7,24 +7,22 @@ using System.Windows.Shapes;
 using System.Windows.Media;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Windows.Input;
 
 namespace FiguresMain
 {
-    class MyEllipse : Figure, IDraw
+    class MyEllipse : Figure
     {
-        public override Shape GetShape()
+        public MyEllipse()
         {
             Ellipse ellipse = new Ellipse();
             ellipse.Height = 50;
             ellipse.Width = 100;
             ellipse.Fill = new SolidColorBrush(Colors.Violet);
 
-            return ellipse;
-
+            MyShape = ellipse;
         }
-        public MyEllipse()
-        {
 
-        }
+ 
     }
 }

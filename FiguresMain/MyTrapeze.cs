@@ -10,17 +10,8 @@ using System.Windows.Media.Imaging;
 
 namespace FiguresMain
 {
-    class MyTrapeze : Figure, IDraw
+    class MyTrapeze : Figure
     {
-        public override Shape GetShape()
-        {
-            Polygon trapeze = new Polygon();
-            trapeze.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-            trapeze.Points = new PointCollection(points);
-
-            return trapeze;
-
-        }
         public MyTrapeze()
         {
             points = new List<Point>();
@@ -28,6 +19,12 @@ namespace FiguresMain
             points.Add(new Point(150, 0));
             points.Add(new Point(175, 50));
             points.Add(new Point(25, 50));
+
+            Polygon trapeze = new Polygon();
+            trapeze.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+            trapeze.Points = new PointCollection(points);
+
+            MyShape = trapeze;
 
         }
     }

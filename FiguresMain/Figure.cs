@@ -15,7 +15,7 @@ namespace FiguresMain
 
         public List<Point> points { get; set; }
 
-        public abstract Shape GetShape();
+        public Shape MyShape { get; set; }
 
         public double GetSideB()
         {

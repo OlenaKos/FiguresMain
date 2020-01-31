@@ -10,21 +10,16 @@ using System.Windows.Media.Imaging;
 
 namespace FiguresMain
 {
-    class MyCircle : Figure, IDraw
+    class MyCircle : Figure
     {
-        public override Shape GetShape()
+        public MyCircle()
         {
             Ellipse circle = new Ellipse();
             circle.Height = 100;
             circle.Width = 100;
             circle.Fill = new SolidColorBrush(Colors.ForestGreen);
 
-            return circle;
-
-        }
-        public MyCircle()
-        {
-
+            MyShape = circle;
         }
     }
 }

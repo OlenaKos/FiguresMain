@@ -10,20 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace FiguresMain
 {
-    public class MyRectangle : Figure, IDraw
+    public class MyRectangle : Figure
     {
 
-        public override Shape GetShape()
-        {
-            Rectangle rect = new Rectangle();
-            rect.Fill = new SolidColorBrush(Colors.Coral);
-            rect.Width = this.GetSideA();
-            rect.Height = this.GetSideB();
-            rect.Name = "rect";
-
-            return rect;
-
-        }
         public MyRectangle()
         {
             points = new List<Point>();
@@ -31,7 +20,13 @@ namespace FiguresMain
             points.Add(new Point(50, 0));
             points.Add(new Point(50, 100));
             points.Add(new Point(0, 100));
-            
+
+            Polygon rect = new Polygon();
+            rect.Fill = new SolidColorBrush(Colors.Chartreuse);
+            rect.Points = new PointCollection(points);
+
+            MyShape = rect;
+
         }
         public MyRectangle(int width, int height)
         {
@@ -40,6 +35,12 @@ namespace FiguresMain
             points.Add(new Point(width, 0));
             points.Add(new Point(width, height));
             points.Add(new Point(0, height));
+
+            Polygon rect = new Polygon();
+            rect.Fill = new SolidColorBrush(Colors.Chartreuse);
+            rect.Points = new PointCollection(points);
+
+            MyShape = rect;
 
         }
 
